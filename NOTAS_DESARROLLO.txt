@@ -1,0 +1,38 @@
+ 
+03/12/2020
+El enlace boletas debería buscar directamente la boleta en el directorio correspondiente a la seccion (estan numerados)
+Pero debe validar si existe la boleta y mostrarla o generar el aviso de bloqueo. 
+una opción es validar en otra página y si no existe avisar.
+otra opción es desde el ingreso consultarlo y mostrar el link generado
+
+
+04/12/2020
+Resuelto el asunto de las boletas
+También se realizó la consulta para los avisos en el index (a través de una nueva clase) y el de circulares.
+Este ultimo archivo es el mismo para los recibos con la modificación de que tiene que buscar si existe una carpeta inscripcion y si es así, tiene que mostrar el contenido correspondiente al alumno. En el caso de que existe más de un recibo de pago ¿Cómo los va a mostrar? POR RESOLVER------
+
+
+Pendientes descubiertos hoy:
+** Se puede cambiar el esquema de color por uno más institucional?
+
+14/01/2021
+¿Es posible añadir una descripción a las circulares? Sería necesario realizar una tabla de Circulares.
+Pendiente como posible opción de crecimiento
+Se modificaron colores en el CSS por legibilidad (el gris era muy claro)
+
+15/01/2021
+Hoy tiene que quedar la Tabla de Reinscripciones
+
+28/01/2021
+Se incluyó un javascript (aux) para la vista de informacion de los alumnos.
+Se realizó un ordenamiento de lib.php por funciones.
+Favor de poner allí todas las demás funciones que se incluyan.
+
+1/02/2021
+Respaldo, funciona el módulo de reinscripciones y se modificó la pagina informacion.php para que en una sola hoja el docente sea capaz de ver toda la información del alumno.
+Se incluyó una bitácora de reinscripciones con una bandera que indica solamente las modificaciones a los datos para que el control escolar no tenga que revisar todos.
+
+Hacen falta los frontends de estos módulos para los usuarios administradores.
+
+Hoy se comienza el módulo de becas para los alumnos, con esto se terminaría esta fase y podemos comenzar a trabajar con el usuario control-escolar/directivo/administradores
+

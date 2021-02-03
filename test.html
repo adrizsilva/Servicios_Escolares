@@ -1,0 +1,58 @@
+
+<!DOCTYPE html><html><head><title>Cursos aprende a programar</title><meta charset="utf-8"/>
+ <style type="text/css">
+ *{font-family:sans-serif;} a:link {text-decoration:none;} select{font-size:18px;}
+ div div {color: blue; background-color:#F1FEC6; font-size: 20px; float:left; border: solid; margin: 20px;
+padding:15px;}
+ </style>
+
+<script>
+function mostrarSugerencia(str) {
+var paisElegido='';
+if (str=='160023') {paisElegido='160023';}
+else if (str=='160024') {paisElegido='160024';}
+else {paisElegido='none';}
+var xmlhttp;
+var contenidosRecibidos = new Array();
+var nodoMostrarResultados = document.getElementById('listaCiudades');
+var contenidosAMostrar = '';
+if (str.length==0) { document.getElementById("txtInformacion").innerHTML="";
+nodoMostrarResultados.innerHTML = ''; return; }
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+ if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+ contenidosRecibidos = xmlhttp.responseText.split(",");
+ document.getElementById("txtInformacion").innerHTML=contenidosRecibidos[0];
+ for (var i=1; i<contenidosRecibidos.length;i++) {
+ contenidosAMostrar = contenidosAMostrar+'<div id="ciudades'+i+'"> <a
+href="http://aprenderaprogramar.com">' + contenidosRecibidos[i]+ '</a></div>';
+ }
+ nodoMostrarResultados.innerHTML = contenidosAMostrar;
+ }
+}
+var cadenaParametros = 'id='+encodeURIComponent(paisElegido);
+xmlhttp.open('POST', 'consultaalumno.php'); // Método post y url invocada
+xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); // Establecer cabeceras de
+petición
+xmlhttp.send(cadenaParametros); // Envio de parámetros usando POST
+}
+</script>
+</head>
+<!--continua-->
+<!--continuacion-->
+<body style="margin:20px;">
+<h2>Elige un país:</h2>
+<form action="">
+ <select onchange="mostrarSugerencia(this.value)">
+ <option value="none">Elige</option>
+ <option value="160023">160023</option>
+ <option value="160024">160024</option>
+
+</select>
+</form>
+<br/>
+<p>Informacion sobre operacion en segundo plano con POST y Ajax: <span style="color:brown;"
+id="txtInformacion"></span></p>
+<div id="listaCiudades"> </div>
+</body>
+</html>
