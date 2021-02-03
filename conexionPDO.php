@@ -5,7 +5,7 @@ class Conexion extends PDO {
   private $nombre_de_base = 'Servicios';
   /*DATOS SERVIDOR LOCAL*/
   private $usuario = 'root';
-  private $password = 'root';
+  private $password = '';
   /* DATOS SERVIDOR HOSTGATOR*/
   // private $usuario='umvallae_uniuser';// aqui debes ingresar el nombre de usuario bd
   // private $password='45,w.;kxcVPE'; // password de acceso para el usuario de la bd
