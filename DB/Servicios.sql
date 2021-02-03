@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 03-02-2021 a las 10:57:37
+-- Tiempo de generación: 03-02-2021 a las 11:06:34
 -- Versión del servidor: 8.0.22-0ubuntu0.20.04.3
 -- Versión de PHP: 7.4.3
 
@@ -31,17 +31,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `Avisos` (
   `Consecutivo` int NOT NULL,
   `Seccion` int NOT NULL,
-  `Carrera` varchar(3) NOT NULL,
+  `Carrera` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Grado` int NOT NULL,
-  `Titulo` varchar(30) NOT NULL,
-  `Contenido` longtext NOT NULL,
-  `Url` text NOT NULL,
-  `Imagen` text NOT NULL,
+  `Titulo` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Contenido` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Imagen` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Fecha_Inicio` date NOT NULL,
   `Fecha_Fin` date NOT NULL,
   `Activo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `Usuario` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `Usuario` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Volcado de datos para la tabla `Avisos`
@@ -60,16 +60,16 @@ INSERT INTO `Avisos` (`Consecutivo`, `Seccion`, `Carrera`, `Grado`, `Titulo`, `C
 --
 
 CREATE TABLE `Becas` (
-  `Id` varchar(20) NOT NULL,
-  `Seccion` varchar(3) NOT NULL,
-  `CicloAct` varchar(4) NOT NULL,
-  `CicloSig` varchar(4) NOT NULL,
+  `Id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Seccion` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `CicloAct` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `CicloSig` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Grado` int NOT NULL,
-  `Tipo` varchar(3) NOT NULL,
+  `Tipo` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Status` int DEFAULT '0',
   `Fecha` timestamp NOT NULL,
-  `Observaciones` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `Observaciones` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Volcado de datos para la tabla `Becas`
@@ -85,16 +85,16 @@ INSERT INTO `Becas` (`Id`, `Seccion`, `CicloAct`, `CicloSig`, `Grado`, `Tipo`, `
 --
 
 CREATE TABLE `ContactoAlumno` (
-  `Id` varchar(20) NOT NULL,
-  `Calle` tinytext NOT NULL,
-  `Colonia` tinytext NOT NULL,
-  `Ciudad` tinytext NOT NULL,
+  `Id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Calle` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Colonia` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Ciudad` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Estado` int NOT NULL,
   `Postal` int NOT NULL,
-  `TelFijo` varchar(10) NOT NULL,
-  `Celular` varchar(10) NOT NULL,
-  `Correo` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `TelFijo` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Celular` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Correo` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Volcado de datos para la tabla `ContactoAlumno`
@@ -111,14 +111,14 @@ INSERT INTO `ContactoAlumno` (`Id`, `Calle`, `Colonia`, `Ciudad`, `Estado`, `Pos
 
 CREATE TABLE `DatosIDAlumno` (
   `Id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Nombre` text NOT NULL,
-  `Apellidos` text NOT NULL,
+  `Nombre` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Apellidos` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Grado` int NOT NULL,
   `Grupo` int NOT NULL,
   `Seccion` int NOT NULL,
   `IdGrupo` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Correo` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `Correo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Volcado de datos para la tabla `DatosIDAlumno`
@@ -137,11 +137,11 @@ INSERT INTO `DatosIDAlumno` (`Id`, `Nombre`, `Apellidos`, `Grado`, `Grupo`, `Sec
 
 CREATE TABLE `DatosIDUsuario` (
   `Id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Nombres` text NOT NULL,
-  `Seccion` set('0','1','2','3','4','5','10') NOT NULL,
-  `Grado` set('1','2','3','4','5','6','7','8') NOT NULL,
-  `Carrera` set('NO','ARQ','EFR','LAV','LDE','LFC','LFR','LNI') NOT NULL DEFAULT 'NO'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Datos Usuarios';
+  `Nombres` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Seccion` set('0','1','2','3','4','5','10') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Grado` set('1','2','3','4','5','6','7','8') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Carrera` set('NO','ARQ','EFR','LAV','LDE','LFC','LFR','LNI') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'NO'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Datos Usuarios';
 
 --
 -- Volcado de datos para la tabla `DatosIDUsuario`
@@ -158,15 +158,15 @@ INSERT INTO `DatosIDUsuario` (`Id`, `Nombres`, `Seccion`, `Grado`, `Carrera`) VA
 --
 
 CREATE TABLE `Reinscripciones` (
-  `Id` varchar(20) NOT NULL,
+  `Id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Seccion` int NOT NULL,
-  `CicloAct` varchar(4) NOT NULL,
-  `CicloSig` varchar(4) NOT NULL,
+  `CicloAct` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `CicloSig` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Grado` int NOT NULL,
   `Status` int NOT NULL,
   `flag` int NOT NULL DEFAULT '0',
   `Fecha` timestamp NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Volcado de datos para la tabla `Reinscripciones`
@@ -182,11 +182,11 @@ INSERT INTO `Reinscripciones` (`Id`, `Seccion`, `CicloAct`, `CicloSig`, `Grado`,
 --
 
 CREATE TABLE `Titulares` (
-  `IdUsuario` varchar(20) NOT NULL,
-  `Ciclo` varchar(20) NOT NULL,
-  `IdGrupo` varchar(5) NOT NULL,
+  `IdUsuario` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Ciclo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `IdGrupo` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Consecutivo` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Volcado de datos para la tabla `Titulares`
@@ -207,7 +207,7 @@ CREATE TABLE `Usuarios` (
   `Pass` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Type` int NOT NULL DEFAULT '0',
   `Privileges` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabla de Usuarios (sin datos)';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Tabla de Usuarios (sin datos)';
 
 --
 -- Volcado de datos para la tabla `Usuarios`
