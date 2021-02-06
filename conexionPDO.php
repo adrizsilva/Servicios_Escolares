@@ -1,14 +1,16 @@
 <?php
 class Conexion extends PDO {
   private $tipo_de_base = 'mysql';
-  private $host = 'localhost';
-  private $nombre_de_base = 'Servicios';
   /*DATOS SERVIDOR LOCAL*/
+ /* private $host = 'localhost';
+  private $nombre_de_base = 'Servicios';
   private $usuario = 'root';
-  private $password = '';
+  private $password = '';*/
   /* DATOS SERVIDOR HOSTGATOR*/
-  // private $usuario='umvallae_uniuser';// aqui debes ingresar el nombre de usuario bd
-  // private $password='45,w.;kxcVPE'; // password de acceso para el usuario de la bd
+    private $host = 'valladolid.edu.mx';
+    private $nombre_de_base = 'umvallae_servicios';
+    private $usuario='umvallae_uniuser';// aqui debes ingresar el nombre de usuario bd
+    private $password='45,w.;kxcVPE'; // password de acceso para el usuario de la bd
 
 public function __construct() {
   try{
